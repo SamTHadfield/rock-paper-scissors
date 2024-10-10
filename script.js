@@ -13,20 +13,34 @@
 // Set let variable equal to prompt ("Do you choose 'rock', 'paper', or 'scissors'?")
 // Create if/else statements within function based on value of let variable
 
+// function getComputerChoice() {
+//     return Math.random();
+//   }
+
+//   let choice = getComputerChoice();
+
+//   if (choice >= 0 && choice <= 0.33) {
+//     console.log("rock");
+//   } else if (choice >= 0.34 && choice <= 0.66) {
+//     console.log("paper");
+//   } else {
+//     console.log("scissors");
+//   }
+
 // Step 2
 function getComputerChoice() {
-  return Math.random();
+  let choice = Math.random();
+
+  if (choice >= 0 && choice <= 0.33) {
+    console.log("rock");
+  } else if (choice >= 0.34 && choice <= 0.66) {
+    console.log("paper");
+  } else {
+    console.log("scissors");
+  }
 }
 
-let choice = getComputerChoice();
-
-if (choice >= 0 && choice <= 0.33) {
-  console.log("rock");
-} else if (choice >= 0.34 && choice <= 0.66) {
-  console.log("paper");
-} else {
-  console.log("scissors");
-}
+getComputerChoice();
 
 // Step 3
 function getHumanChoice() {
@@ -50,3 +64,5 @@ getHumanChoice();
 // Step 4
 let humanScore = 0;
 let computerScore = 0;
+
+//Step 5

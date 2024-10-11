@@ -32,11 +32,11 @@ function getComputerChoice() {
   let choice = Math.random();
 
   if (choice >= 0 && choice <= 0.33) {
-    console.log("rock");
+    return "rock";
   } else if (choice >= 0.34 && choice <= 0.66) {
-    console.log("paper");
+    return "paper";
   } else {
-    console.log("scissors");
+    return "scissors";
   }
 }
 
@@ -49,13 +49,13 @@ function getHumanChoice() {
   ).toLowerCase();
 
   if (choice === "rock") {
-    console.log("rock");
+    return "rock";
   } else if (choice === "paper") {
-    console.log("paper");
+    return "paper";
   } else if (choice === "scissors") {
-    console.log("scissors");
+    return "scissors";
   } else {
-    console.log("I'm sorry, you entered an incorrect value");
+    return "I'm sorry, you entered an incorrect value";
   }
 }
 
@@ -65,4 +65,19 @@ getHumanChoice();
 let humanScore = 0;
 let computerScore = 0;
 
-//Step 5
+//Step 5: Write the logic to play a single round
+
+// Create new function named playRound
+// Set parameters to humanChoice and computerChoice
+// playRound function has to console.log winner of the game i.e. "You lose! Paper beats Rock."
+//  - may need to employ switch statement here (if/else statements will become cumbersome very quickly)
+// Increment humanScore or computerScore based on winner.
+
+// function playRound(humanChoice, computerChoice) {
+
+// }
+
+// const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
+
+// console.log(playRound(humanSelection, computerSelection));

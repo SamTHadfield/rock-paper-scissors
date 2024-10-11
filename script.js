@@ -40,8 +40,6 @@ function getComputerChoice() {
   }
 }
 
-getComputerChoice();
-
 // Step 3
 function getHumanChoice() {
   let choice = prompt(
@@ -54,12 +52,8 @@ function getHumanChoice() {
     return "paper";
   } else if (choice === "scissors") {
     return "scissors";
-  } else {
-    return "I'm sorry, you entered an incorrect value";
   }
 }
-
-getHumanChoice();
 
 // Step 4
 let humanScore = 0;
@@ -73,11 +67,53 @@ let computerScore = 0;
 //  - may need to employ switch statement here (if/else statements will become cumbersome very quickly)
 // Increment humanScore or computerScore based on winner.
 
-// function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
+  switch (humanChoice) {
+    case "rock":
+      if (computerChoice === "rock") {
+        console.log("It's a draw! Rock ties with Rock!");
+      } else if (computerChoice === "paper") {
+        console.log("You lose! Paper beats Rock!");
+        return computerScore++;
+      } else if (computerChoice === "scissors") {
+        console.log("You win! Rock beats Scissors!");
+        return humanScore++;
+      }
+      break;
 
-// }
+    case "paper":
+      if (computerChoice === "rock") {
+        console.log("You win! Paper beats rock!");
+        return humanScore++;
+      } else if (computerChoice === "paper") {
+        console.log("It's a draw! Paper ties with Paper!");
+      } else if (computerChoice === "scissors") {
+        console.log("You lose! Scissors beats paper!");
+      }
+      return computerScore++;
+      break;
 
-// const humanSelection = getHumanChoice();
-// const computerSelection = getComputerChoice();
+    case "scissors":
+      if (computerChoice === "rock") {
+        console.log("You lose! Rock beats scissors!");
+        return computerScore++;
+      } else if (computerChoice === "paper") {
+        console.log("You win! Scissors beats paper!");
+        return humanScore++;
+      } else if (computerChoice === "scissors") {
+        console.log("It's a draw! Scissors ties with Scissors!");
+      }
+      break;
 
-// console.log(playRound(humanSelection, computerSelection));
+    default:
+      console.log("You entered an incorrect value.");
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
+console.log("Human Score: " + humanScore);
+console.log("Computer Score: " + computerScore);

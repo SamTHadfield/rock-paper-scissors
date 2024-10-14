@@ -1,27 +1,4 @@
-//Pseudocode Below:
-
-// Step 2: Write the logic to get the computer choice
-
-// Create new function named getComputerChoice()
-// Will need to randomly return one of the following strings: "rock", "paper", "scissors"
-// Declare variable
-// Use Math.random method on variable to generate a random number
-// Employ if/else statements to print string based on random output of variable
-
-// Step 3: Write the logic to get the human choice (pseudocode)
-
-// Create a new function named getHumanChoice
-// Create let variable within function
-// Set let variable equal to prompt ("Do you choose 'rock', 'paper', or 'scissors'?")
-// Create if/else statements within function based on value of let variable
-
-//Step 5: Write the logic to play a single round
-
-// Create new function named playRound
-// Set parameters to humanChoice and computerChoice
-// playRound function has to console.log winner of the game i.e. "You lose! Paper beats Rock."
-//  - may need to employ switch statement here (if/else statements will become cumbersome very quickly)
-// Increment humanScore or computerScore based on winner.
+//Choice functions
 
 function getComputerChoice() {
   let choice = Math.random();
@@ -35,7 +12,6 @@ function getComputerChoice() {
   }
 }
 
-// Step 3
 function getHumanChoice() {
   let choice = prompt(
     "Do you choose 'rock', 'paper', or 'scissors'?"
@@ -54,6 +30,7 @@ function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
+  // One Round
   function playRound(humanChoice, computerChoice) {
     switch (humanChoice) {
       case "rock":
@@ -97,6 +74,7 @@ function playGame() {
     }
   }
 
+  // Re-call functions to play 5 rounds
   for (let i = 0; i < 5; i++) {
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
@@ -105,7 +83,7 @@ function playGame() {
     console.log("Computer Score: " + computerScore);
   }
 
-  //Final Round Message
+  // Final message upon game completion
   if (humanScore > computerScore) {
     console.log("Congrats! You beat the Computer!");
   } else if (humanScore === computerScore) {

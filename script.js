@@ -42,7 +42,7 @@ function playGame() {
   const buttons = document.querySelectorAll("button");
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      const humanSelection = button.id;
+      const humanSelection = button.id.toLowerCase();
       const computerSelection = getComputerChoice();
       playRound(humanSelection, computerSelection);
     });

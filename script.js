@@ -1,5 +1,4 @@
 //Choice functions
-
 function getComputerChoice() {
   let choice = Math.random();
 
@@ -12,23 +11,42 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  let choice = prompt(
-    "Do you choose 'rock', 'paper', or 'scissors'?"
-  ).toLowerCase();
+// function getHumanChoice() {
+//   let choice = prompt(
+//     "Do you choose 'rock', 'paper', or 'scissors'?"
+//   ).toLowerCase();
 
-  if (choice === "rock") {
-    return "rock";
-  } else if (choice === "paper") {
-    return "paper";
-  } else if (choice === "scissors") {
-    return "scissors";
-  }
-}
+//   if (choice === "rock") {
+//     return "rock";
+//   } else if (choice === "paper") {
+//     return "paper";
+//   } else if (choice === "scissors") {
+//     return "scissors";
+//   }
+// }
 
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
+
+  // Re-call functions to play 5 rounds
+  // for (let i = 0; i < 5; i++) {
+  //   const humanSelection = getHumanChoice();
+  //   const computerSelection = getComputerChoice();
+  //   playRound(humanSelection, computerSelection);
+  //   console.log("Human Score: " + humanScore);
+  //   console.log("Computer Score: " + computerScore);
+  // }
+
+  // Add Event Listeners to Buttons
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const humanSelection = button.id;
+      const computerSelection = getComputerChoice();
+      playRound(humanSelection, computerSelection);
+    });
+  });
 
   // One Round
   function playRound(humanChoice, computerChoice) {
@@ -72,15 +90,6 @@ function playGame() {
       default:
         console.log("You entered an incorrect value.");
     }
-  }
-
-  // Re-call functions to play 5 rounds
-  for (let i = 0; i < 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    console.log("Human Score: " + humanScore);
-    console.log("Computer Score: " + computerScore);
   }
 
   // Final message upon game completion
